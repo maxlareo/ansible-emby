@@ -1,0 +1,3 @@
+---
+# vars file for emby
+emby_service: emby-server
