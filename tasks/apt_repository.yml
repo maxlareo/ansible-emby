@@ -1,0 +1,33 @@
+---
+# using https://software.opensuse.org/download.html
+
+- name: Set Debian vars
+  set_fact:
+    release_name: '{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.0' 
+  when: ansible_distribution == 'Debian'
+
+- name: Set Ubuntu vars
+  set_fact:
+    release_name: 'x{{ ansible_distribution }}_{{ ansible_distribution_version }}' 
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Add emby repository Debian key to apt
+  become: true
+  apt_key:
+    url: 'https://download.opensuse.org/repositories/home:emby/{{ release_name }}/Release.key'
+    keyring: '/etc/apt/trusted.gpg.d/{{ emby_service }}.gpg'
+    state: present
+
+- name: Install emby repository
+  become: true
+  apt_repository:
+      repo: "deb http://download.opensuse.org/repositories/home:/emby/{{ release_name }}/ /"
+      filename: "emby-server"
+      state: present
+
+- name: 'Update repositories cache and install {{ emby_service }} package'
+  become: true
+  apt:
+    name: '{{ emby_service }}'
+    update_cache: true
+    state: latest

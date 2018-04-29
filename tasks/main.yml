@@ -1,0 +1,17 @@
+---
+# tasks file for emby
+
+- name: Ensure user primary group exist
+  group:
+    name: '{{ emby_group }}'
+    state: present
+
+- name: Ensure user exist
+  user:
+    name: '{{ emby_user }}'
+    group: '{{ emby_group }}'
+    state: present
+
+- name: Install emby package source
+  include: '{{ ansible_pkg_mgr }}_repository.yml'
+  when: ansible_pkg_mgr == 'apt' or ansible_pkg_mgr == 'yum'
