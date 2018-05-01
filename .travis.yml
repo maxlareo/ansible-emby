@@ -57,6 +57,9 @@ before_script:
     ${run_opts} geerlingguy/docker-${distro}-ansible:latest
     "${init}" > "${container_id}"
   - >
+    docker exec "$(cat ${container_id})" bash -c "
+    apt-get update && apt-get install -y gnupg"
+  - >
     if [[ "$ansible_version" != "latest" ]];
     then docker exec "$(cat ${container_id})" bash -c "
     pip install ansible==$ansible_version";
