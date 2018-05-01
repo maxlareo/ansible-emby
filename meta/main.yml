@@ -3,7 +3,7 @@ galaxy_info:
   author: Maxime Lareo
   description: Install emby server
   license: MIT
-  min_ansible_version: 2.0.0.0
+  min_ansible_version: 2.3.0.0
   platforms:
     - name: Debian
       versions:
@@ -12,7 +12,9 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - xenial
-        - trusty
+    - name: CentOS
+      versions:
+        - 7
 
   galaxy_tags:
     - emby
