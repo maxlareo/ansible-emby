@@ -3,3 +3,13 @@
 
 emby_user: emby
 emby_group: emby
+emby_dir: /usr/lib/emby-server
+emby_bin: /usr/lib/emby-server/bin/MediaBrowser.Server.Mono.exe
+emby_data: /var/lib/emby-server
+emby_pidfile: /var/run/emby-server.pid
+emby_add_opts: ''
+mono_bin: /usr/bin/mono-sgen
+mono_opts: --optimize=all
+mono_env: >
+  MONO_THREADS_PER_CPU=500
+  max-heap-size=96m,soft-heap-limit=64m,nursery-size=4m
