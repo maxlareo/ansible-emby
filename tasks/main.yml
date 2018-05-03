@@ -15,3 +15,13 @@
 - name: Install emby package source
   include: '{{ ansible_pkg_mgr }}_repository.yml'
   when: ansible_pkg_mgr == 'apt' or ansible_pkg_mgr == 'yum'
+
+- name: Update {{ emby_service }} configuration file
+  become: true
+  template:
+    src: etc/emby-server.conf.j2
+    dest: /etc/emby-server.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart emby

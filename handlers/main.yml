@@ -1,2 +1,7 @@
 ---
 # handlers file for emby
+
+- name: restart emby
+  service:
+    name: '{{ emby_service }}'
+    state: restarted
