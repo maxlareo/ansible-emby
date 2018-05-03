@@ -58,10 +58,10 @@ before_script:
   - >
     if [[ "$pm" == "yum" ]];
     then docker exec "$(cat ${container_id})" bash -c "
-    yum -y update && yum install -y gnupg";
+    yum install -y gnupg";
     elif [[ "$pm" == "apt" ]];
     then docker exec "$(cat ${container_id})" bash -c "
-    apt-get update && apt-get install -y gnupg";
+    apt update && apt install -y gnupg";
     fi
   - >
     if [[ "$ansible_version" != "latest" ]];
