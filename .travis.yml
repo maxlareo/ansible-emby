@@ -39,11 +39,11 @@ env:
     run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
     ansible_version: latest
     pm: apt
-  - distro: centos7
-    init: /lib/systemd/systemd
-    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    ansible_version: latest
-    pm: yum
+# - distro: centos7
+#   init: /lib/systemd/systemd
+#   run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+#   ansible_version: latest
+#   pm: yum
 
 before_install:
   - 'docker pull geerlingguy/docker-${distro}-ansible:latest'

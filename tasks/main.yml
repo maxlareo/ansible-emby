@@ -14,7 +14,7 @@
 
 - name: Install emby package source
   include: '{{ ansible_pkg_mgr }}_repository.yml'
-  when: ansible_pkg_mgr == 'apt' or ansible_pkg_mgr == 'yum'
+  when: ansible_pkg_mgr == 'apt'
 
 - name: Update {{ emby_service }} configuration file
   become: true
