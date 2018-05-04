@@ -61,7 +61,7 @@ before_script:
     yum install -y gnupg python-pip";
     elif [[ "$pm" == "apt" ]];
     then docker exec "$(cat ${container_id})" bash -c "
-    apt update && apt install -y gnupg";
+    apt update && apt install -y gnupg python-pip";
     fi
   - >
     if [[ "$ansible_version" != "latest" ]];
