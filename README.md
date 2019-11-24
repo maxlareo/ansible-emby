@@ -5,11 +5,6 @@ Emby
 
 An Ansible role that installs Emby (https://emby.media/).
 
-Requirements
-------------
-
-None
-
 Role Variables
 --------------
 
@@ -33,22 +28,12 @@ Example Playbook
 ----------------
 
 ```yaml
-    - hosts: servers
-      roles:
-         - emby
+- hosts: servers
+  roles:
+    - emby
 ```
 
 License
 -------
 
 MIT
-
-Author Information
-------------------
-
-[Maxime Lareo](https://github.com/maxlareo)
-
-Feedback, bug-reports, requests, ...
-------------------------------------
-
-Are [welcome](https://github.com/maxlareo/ansible-emby/issues)!

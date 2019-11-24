@@ -1,6 +1,4 @@
 ---
-# tasks file for emby
-
 - name: Ensure user primary group exist
   group:
     name: '{{ emby_group }}'

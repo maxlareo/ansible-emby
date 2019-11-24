@@ -1,6 +1,4 @@
 ---
-# defaults file for emby
-
 emby_user: emby
 emby_group: emby
 emby_dir: /usr/lib/emby-server
